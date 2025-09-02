@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista Tarefas</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: rgb(80, 14, 94);
+        }
+
+        .container {
+            background-color: blueviolet;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            margin: 60px auto;
+            padding: 80px 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.2);
+            width: 350px;
+            min-height: 300px;
+        }
+
+        input {
+            "margin-top:20px; 
+             width: 80%;
+            padding: 8px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            "
+        }
+        button {
+            
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul></ul>
+        <input>
+        <button onclick="add()"
+            style="margin-top:10px; padding:8px 16px; border-radius:6px; border:none; background:#fff; color:blueviolet; font-weight:bold; cursor:pointer;">Adicionar</button>
+    </div>
+
+    <script>
+        const tarefas = ['Academia', 'PagarIPTU', 'LançamentosCashimbo', 'reuniao']
+
+        function add() {
+            const input = document.querySelector('input');
+            tarefas.push(input.value);
+            input.value = "";
+            render();
+        }
+        function render() {
+            const ul = document.querySelector('ul');
+            ul.innerHTML = "";
+            tarefas.forEach(function (tarefa) {
+                const li = document.createElement('li');
+                li.innerText = tarefa;
+                ul.appendChild(li)
+            });
+        }
+        render()
+    </script>
+</body>
+
+</html>
